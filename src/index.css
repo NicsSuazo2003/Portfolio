@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-cream-50 text-ink font-sans antialiased;
+    font-feature-settings: 'ss01', 'cv01', 'cv03';
+  }
+
+  ::selection {
+    @apply bg-accent-tint text-ink;
+  }
+
+  /* Refined focus ring */
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px bg-cream-50, 0 0 0 4px theme('colors.accent.DEFAULT');
+  }
+}
+
+@layer components {
+  .container-edge {
+    @apply mx-auto w-full max-w-content px-6 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-wide-4 text-ink-faint;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-ink/10;
+  }
+
+  .link-underline {
+    @apply relative inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute left-0 -bottom-0.5 h-px w-0 bg-accent transition-all duration-500 ease-out;
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar — understated */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: theme('colors.cream.100');
+}
+::-webkit-scrollbar-thumb {
+  background: theme('colors.ink.faint');
+  border: 3px solid theme('colors.cream.100');
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.ink.muted');
+}
