@@ -1,5 +1,9 @@
 import Reveal from '@/components/Reveal';
 
+import sideoutImage from '@/images/sideout.png';
+import courtSideImage from '@/images/courtside.jpg';
+import cslImage from '@/images/csl.jpg';
+
 interface Project {
   title: string;
   description: string;
@@ -20,7 +24,7 @@ const projects: Project[] = [
     description:
       'A full hotel booking and management platform with booking APIs, Stripe payment integration, and real-time room availability.',
     tech: ['ASP.NET Core', 'C#', 'SQL Server', 'Stripe'],
-    image: '/images/csl.jpg',
+    image: cslImage,
   },
   {
     title: 'Patrimonio Store',
@@ -34,7 +38,7 @@ const projects: Project[] = [
       'A booking management system for a pickleball court business, covering reservations, scheduling, and availability.',
     tech: ['React', 'TypeScript', 'C# / ASP.NET', 'PostgreSQL'],
     link: 'https://sideoutplayground.vercel.app',
-    image: '/images/sideout.png',
+    image: sideoutImage,
   },
   {
     title: 'Court Side Playground',
@@ -42,7 +46,7 @@ const projects: Project[] = [
       'A pickleball court booking and management system for handling court reservations, scheduling, and availability.',
     tech: ['React', 'TypeScript', 'C# / ASP.NET', 'PostgreSQL'],
     link: 'https://pickleball-court-system-hazel.vercel.app/',
-    image: '/images/courtside.jpg',
+    image: courtSideImage,
   },
 ];
 
@@ -54,7 +58,7 @@ export default function Work() {
     >
       <div className="container-edge">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-12">
-          
+
           {/* Section Label */}
           <div className="md:col-span-4">
             <Reveal as="p" className="eyebrow">
@@ -72,9 +76,9 @@ export default function Work() {
                   delay={i * 100}
                 >
                   <div className="group py-8 md:py-10">
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
-                      
+
                       {/* Image */}
                       <div className="md:col-span-5">
                         {p.image ? (
@@ -111,9 +115,9 @@ export default function Work() {
 
                       {/* Project Information */}
                       <div className="md:col-span-7">
-                        
+
                         <div className="flex flex-col gap-1.5 md:flex-row md:items-baseline md:justify-between md:gap-6">
-                          
+
                           {/* Project Title */}
                           {p.link ? (
                             <a
