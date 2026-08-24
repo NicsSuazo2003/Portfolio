@@ -33,12 +33,13 @@ const projects: Project[] = [
     tech: ['React', 'TypeScript', 'C# / ASP.NET', 'PostgreSQL'],
     link: 'https://sideoutplayground.vercel.app',
   },
-{title: 'Court Side Playground',
+  {
+    title: 'Court Side Playground',
     description:
       'A pickleball court booking and management system for handling court reservations, scheduling, and availability.',
     tech: ['React', 'TypeScript', 'C# / ASP.NET', 'PostgreSQL'],
     link: 'https://pickleball-court-system-hazel.vercel.app/',
-  }
+  },
 ];
 
 export default function Work() {
