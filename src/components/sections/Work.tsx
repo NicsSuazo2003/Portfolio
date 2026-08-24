@@ -4,6 +4,7 @@ interface Project {
   title: string;
   description: string;
   tech: string[];
+  link?: string;
 }
 
 const projects: Project[] = [
@@ -30,12 +31,16 @@ const projects: Project[] = [
     description:
       'A booking management system for a pickleball court business, covering reservations, scheduling, and availability.',
     tech: ['React', 'TypeScript', 'C# / ASP.NET', 'PostgreSQL'],
+    link: 'https://sideoutplayground.vercel.app',
   },
 ];
 
 export default function Work() {
   return (
-    <section id="work" className="py-24 md:py-36 border-t border-ink/10">
+    <section
+      id="work"
+      className="py-24 md:py-36 border-t border-ink/10"
+    >
       <div className="container-edge">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-12">
           <div className="md:col-span-4">
@@ -47,12 +52,28 @@ export default function Work() {
           <div className="md:col-span-8">
             <div className="divide-y divide-ink/10 border-t border-ink/10">
               {projects.map((p, i) => (
-                <Reveal key={p.title} as="article" delay={i * 100}>
+                <Reveal
+                  key={p.title}
+                  as="article"
+                  delay={i * 100}
+                >
                   <div className="group py-8 md:py-10 cursor-default">
                     <div className="flex flex-col gap-1.5 md:flex-row md:items-baseline md:justify-between md:gap-6">
-                      <h3 className="font-serif text-2xl md:text-3xl text-ink tracking-tight-2 transition-colors duration-500 group-hover:text-accent">
-                        {p.title}
-                      </h3>
+                      {p.link ? (
+                        <a
+                          href={p.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-serif text-2xl md:text-3xl text-ink tracking-tight-2 transition-colors duration-500 hover:text-accent underline decoration-ink/20 underline-offset-4"
+                        >
+                          {p.title}
+                        </a>
+                      ) : (
+                        <h3 className="font-serif text-2xl md:text-3xl text-ink tracking-tight-2 transition-colors duration-500 group-hover:text-accent">
+                          {p.title}
+                        </h3>
+                      )}
+
                       <span className="font-mono text-[11px] uppercase tracking-wide-3 text-ink-faint">
                         {String(i + 1).padStart(2, '0')}
                       </span>
